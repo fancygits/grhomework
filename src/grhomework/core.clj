@@ -66,7 +66,7 @@
 (defn generate-test-data-files [primer-fname]
   "Takes a primer csv (generated from dumbdata.com; see README),
   adds a `color` column, then splits into 3 distinct files,
-  each with differing separators, each w/ 30 rows."
+  each with differing separators."
   (let [rawdata- (slurp-csv primer-fname)
         rawdata (map #(cset/rename-keys % {"namelast" "LastName"
                                            "namefirst" "FirstName"

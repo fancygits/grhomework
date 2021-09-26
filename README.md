@@ -1,10 +1,12 @@
 grhomework
 ==========
 
-generating test data
+Generating test data
 --------------------
 
-First, to generate a "primer" file, Visit dumbdata.com. Choose these four
+(Note that some ready-to-go test data already exists in `resources/`.)
+
+First, generate a "primer" file. Visit dumbdata.com; choose these four
 colums:
 
 * Last name
@@ -18,7 +20,7 @@ per above, and generate a file.
 Then, to create the three target test data files, each with a distinct
 delimiter, and with a `FavoriteColor` column, run `lein repl`, then run:
 
-    grhomework.core=> (generate-test-data-files "primer-data.csv")
+    (generate-test-data-files "primer-data.csv")
 
 Running tests
 -------------
@@ -32,13 +34,17 @@ Step 1
 
 First, check that you have the three necessary data files:
 
-* `data-1.csv` (delimiter: " | ")
-* `data-2.csv` (delimiter: ", ")
-* `data-3.csv` (delimiter: " ")
+* `resources/data-1.csv` (delimiter: " | ")
+* `resources/data-2.csv` (delimiter: ", ")
+* `resources/data-3.csv` (delimiter: " ")
+
+(There are also some smaller versions of these files with just
+five lines each, prefixed with `test-`.)
 
 Run and display the combined, sorted data like so -- please note that the
-delimiter you pass as an arg should consist of a single character:
+delimiter you pass as an arg should consist of a single character (if the
+file has spaces around the delimier, that will be handled):
 
-    lein run data-1.csv "|" data-2.csv "," data-3.csv " "
+    lein run resources/data-1.csv "|" resources/data-2.csv "," resources/data-3.csv " "
 
 
