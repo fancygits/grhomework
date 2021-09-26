@@ -20,4 +20,25 @@ delimiter, and with a `FavoriteColor` column, run `lein repl`, then run:
 
     grhomework.core=> (generate-test-data-files "primer-data.csv")
 
+Running tests
+-------------
+
+Run tests like so:
+
+    lein test
+
+Part 1
+------
+
+First, check that you have the three necessary data files:
+
+* `data-1.csv` (delimiter: " | ")
+* `data-2.csv` (delimiter: ", ")
+* `data-3.csv` (delimiter: " ")
+
+Run and display the combined, sorted data like so -- please note that the
+delimiter you pass as an arg should consist of a single character:
+
+    lein run data-1.csv "|" data-2.csv "," data-3.csv " "
+
 

@@ -1,7 +1,7 @@
 (ns grhomework.core
   [:require
     [clojure.java.io  :as io]
-    ; [clojure.pprint   :as pprint]
+    [clojure.pprint   :as pprint]
     [clojure.set      :as cset]
     [clojure.string   :as s]
     [clojure.data.csv :as csv]])
@@ -10,6 +10,13 @@
   ["LastName", "FirstName", "Email", "FavoriteColor", "DateOfBirth"])
 
 (def colors ["red" "orange" "yellow" "green" "blue" "indigo" "violet"])
+
+(defn fmt-dt [dt-str]
+  "Takes a date str and formats it in desired format"
+  (let [in-sdf (java.text.SimpleDateFormat. "yyyy-MM-dd")
+        out-sdf (java.text.SimpleDateFormat. "M/d/yyyy")
+        dt (.parse in-sdf dt-str)]
+    (.format out-sdf dt)))
 
 (defn slurp-csv
   ([fname]
@@ -20,8 +27,9 @@
           ; only pass in a char, not a multi-char str, for separator)
           rawdata (map (fn [items] (map #(s/trim %) items)) rawdata-)
           csv-headers (first rawdata)
-          data (map #(zipmap csv-headers %) (rest rawdata))
-          ;data (map #(into {} (for [[k v] %] [k (s/trim v)])) data-)]
+          data* (map #(zipmap csv-headers %) (rest rawdata))
+          ; Reformat date per requirement 
+          data (map #(update % "DateOfBirth" fmt-dt) data*)
         ]
       data)))
 
@@ -69,6 +77,15 @@
       (write-delimited-data-file data-3 "data-3.csv" " ")))
   (println "Generated data-1.csv, data-2.csv, and data-3.csv."))
 
-; (defn print-data-table [data]
-;  (pprint/print-table headers data))
+(defn print-data-table [data]
+  (pprint/print-table data))
+
+(defn slurp-sort-and-display [args]
+  "TODO"  
+)
+
+(defn -main [& args]
+  (println "main")
+  (println args)
+)
 
