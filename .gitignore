@@ -126,4 +126,8 @@ profiles.clj
 #     exceptions      #
 #######################
 
+!primer-data.csv
+!data-1.csv
+!data-2.csv
+!data-3.csv
 
