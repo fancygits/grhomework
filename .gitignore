@@ -1,0 +1,129 @@
+#######################
+#       common        #
+#######################
+
+# explicit
+ignore/
+
+# private/sensitve config
+enclave/
+
+# common directories to ignore.
+archive/
+inbox/
+out/
+data/
+cuttingfloor/
+cutting-floor/
+
+# private keys / pki-related, etc.
+*.jks
+*.pem
+*.key
+*.pfx
+*.p12
+
+# data-related files
+*.csv
+*.dat
+*.txt
+*.tmp
+*.tsv
+*.xml
+*.json
+*.edn           # clojure edn / extensible data notation
+*.dat
+*.data
+*.xls           # excel
+*.xlsx          # excel
+*.xlsm          # excel
+*.xlsb          # excel
+*.gnumeric
+*.ods           # libreoffice spreadsheet
+*.mdb           # access
+*.accdb         # access
+*.laccdb        # access
+*.accda         # access
+*.adp           # access project
+*.db            # dbm, sqlite
+*.sqlite
+*.sqlite3
+
+# wsdl
+*.wsdl
+
+# various temp / output files
+*.cache
+*.bak
+*.bkp
+.\#*
+._*
+*.o
+*.so
+\#*\#
+*.out           # gcc-generated binary
+
+# logs
+log/
+logs/
+*.log
+
+# vim
+*~
+*.swp
+*.swo
+
+# system files
+.DS_Store
+Thumbs.db
+thumbs.db
+Desktop.ini
+desktop.ini
+__MACOSX/
+
+# applications, etc.
+*.app
+*.exe
+*.war
+*.jar
+*.class
+
+# media files
+*.mp3
+*.mp4
+*.m4a
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
+
+#######################
+#      clojure        #
+#######################
+
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/lib/
+/classes/
+/target/
+/checkouts/
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+.lein-failures
+.nrepl-port
+profiles.clj
+
+/.lein-*
+/.nrepl-port
+/.prepl-port
+
+#######################
+#    app-specific     #
+#     exceptions      #
+#######################
+
+
