@@ -1,0 +1,51 @@
+
+================================================================================
+Output 1 – sorted by favorite color then by last name ascending.
+================================================================================
+
+| LastName | FirstName |                                               Email | FavoriteColor | DateOfBirth |
+|----------+-----------+-----------------------------------------------------+---------------+-------------|
+|     Baus |    Jackie |      statisticsmilitarizing@Pittmanbulgysermons.org |          blue |  11/22/1996 |
+|  Harteis |   Gabriel |     jockemployerwhenspeculator@mislaysrevamping.gov |          blue |    6/1/1975 |
+|  Kruskie |  Nickolas |          copiedbakerscounsellor@moonlitsunlights.me |         green |   2/21/2006 |
+| Mcmurray |      Rolf | exhortationsbabblestopss@trickierAudragyrations.edu |         green |   8/15/2007 |
+|  Shadrix |       Jim |                  locksdetracted@inureinnovators.net |         green |    8/3/1986 |
+|  Grochow |    Delmar |     betokenscoexistingclassed@MasterCardsBergen.com |        indigo |   8/31/2017 |
+| Vanparys |     Erwin |                      bankrollingmarvels@traffic.com |        indigo |    9/5/1994 |
+|  Burrier |    Efrain |         overpowernailbrushs@franchisedgateposts.com |           red |  10/20/2008 |
+|   serman |   Stanton |                   alehootingsasses@ranchesStacis.me |        violet |   12/1/1993 |
+|    Banes |      Hoyt |                  Patricaexciting@nookactivating.gov |        yellow |   4/17/2019 |
+
+================================================================================
+Output 2 – sorted by birth date, ascending.
+================================================================================
+
+| LastName | FirstName |                                               Email | FavoriteColor | DateOfBirth |
+|----------+-----------+-----------------------------------------------------+---------------+-------------|
+|  Harteis |   Gabriel |     jockemployerwhenspeculator@mislaysrevamping.gov |          blue |    6/1/1975 |
+|  Shadrix |       Jim |                  locksdetracted@inureinnovators.net |         green |    8/3/1986 |
+|   serman |   Stanton |                   alehootingsasses@ranchesStacis.me |        violet |   12/1/1993 |
+| Vanparys |     Erwin |                      bankrollingmarvels@traffic.com |        indigo |    9/5/1994 |
+|     Baus |    Jackie |      statisticsmilitarizing@Pittmanbulgysermons.org |          blue |  11/22/1996 |
+|  Kruskie |  Nickolas |          copiedbakerscounsellor@moonlitsunlights.me |         green |   2/21/2006 |
+| Mcmurray |      Rolf | exhortationsbabblestopss@trickierAudragyrations.edu |         green |   8/15/2007 |
+|  Burrier |    Efrain |         overpowernailbrushs@franchisedgateposts.com |           red |  10/20/2008 |
+|  Grochow |    Delmar |     betokenscoexistingclassed@MasterCardsBergen.com |        indigo |   8/31/2017 |
+|    Banes |      Hoyt |                  Patricaexciting@nookactivating.gov |        yellow |   4/17/2019 |
+
+================================================================================
+Output 3 – sorted by last name, descending.
+================================================================================
+
+| LastName | FirstName |                                               Email | FavoriteColor | DateOfBirth |
+|----------+-----------+-----------------------------------------------------+---------------+-------------|
+| Vanparys |     Erwin |                      bankrollingmarvels@traffic.com |        indigo |    9/5/1994 |
+|  Shadrix |       Jim |                  locksdetracted@inureinnovators.net |         green |    8/3/1986 |
+|   serman |   Stanton |                   alehootingsasses@ranchesStacis.me |        violet |   12/1/1993 |
+| Mcmurray |      Rolf | exhortationsbabblestopss@trickierAudragyrations.edu |         green |   8/15/2007 |
+|  Kruskie |  Nickolas |          copiedbakerscounsellor@moonlitsunlights.me |         green |   2/21/2006 |
+|  Harteis |   Gabriel |     jockemployerwhenspeculator@mislaysrevamping.gov |          blue |    6/1/1975 |
+|  Grochow |    Delmar |     betokenscoexistingclassed@MasterCardsBergen.com |        indigo |   8/31/2017 |
+|  Burrier |    Efrain |         overpowernailbrushs@franchisedgateposts.com |           red |  10/20/2008 |
+|     Baus |    Jackie |      statisticsmilitarizing@Pittmanbulgysermons.org |          blue |  11/22/1996 |
+|    Banes |      Hoyt |                  Patricaexciting@nookactivating.gov |        yellow |   4/17/2019 |

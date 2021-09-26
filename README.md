@@ -27,7 +27,7 @@ Run tests like so:
 
     lein test
 
-Part 1
+Step 1
 ------
 
 First, check that you have the three necessary data files:

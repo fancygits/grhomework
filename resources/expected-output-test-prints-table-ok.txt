@@ -1,0 +1,8 @@
+
+| LastName | FirstName |                                               Email | FavoriteColor | DateOfBirth |
+|----------+-----------+-----------------------------------------------------+---------------+-------------|
+| Mcmurray |      Rolf | exhortationsbabblestopss@trickierAudragyrations.edu |         green |   8/15/2007 |
+|    Banes |      Hoyt |                  Patricaexciting@nookactivating.gov |        yellow |   4/17/2019 |
+|  Harteis |   Gabriel |     jockemployerwhenspeculator@mislaysrevamping.gov |          blue |    6/1/1975 |
+|  Grochow |    Delmar |     betokenscoexistingclassed@MasterCardsBergen.com |        indigo |   8/31/2017 |
+| Vanparys |     Erwin |                      bankrollingmarvels@traffic.com |        indigo |    9/5/1994 |

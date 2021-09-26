@@ -11,10 +11,11 @@
 
 (def colors ["red" "orange" "yellow" "green" "blue" "indigo" "violet"])
 
+(def out-sdf (java.text.SimpleDateFormat. "M/d/yyyy"))
+
 (defn fmt-dt [dt-str]
   "Takes a date str and formats it in desired format"
   (let [in-sdf (java.text.SimpleDateFormat. "yyyy-MM-dd")
-        out-sdf (java.text.SimpleDateFormat. "M/d/yyyy")
         dt (.parse in-sdf dt-str)]
     (.format out-sdf dt)))
 
@@ -32,6 +33,13 @@
           data (map #(update % "DateOfBirth" fmt-dt) data*)
         ]
       data)))
+
+(defn slurp-mult-files [args]
+  "`args` should be filename1, sep1, filename2, sep2 ... etc."
+  (let [fnames (take-nth 2 args)
+        seps (map first (take-nth 2 (rest args)))
+        data (flatten (mapv slurp-csv fnames seps))]
+    data))
 
 (defn sort-cols [data]
   "Turn all maps in data into sorted maps having  
@@ -77,15 +85,53 @@
       (write-delimited-data-file data-3 "data-3.csv" " ")))
   (println "Generated data-1.csv, data-2.csv, and data-3.csv."))
 
+(defn sort-by-color-then-last-name [data]
+  (sort-by
+    (juxt
+      #(get % "FavoriteColor")
+      #(s/lower-case (get % "LastName")))
+    data))
+
+(defn sort-by-dob [data]
+  (sort-by 
+    #(.parse out-sdf (get % "DateOfBirth")) data))
+
+(defn sort-by-last-name-descend [data]
+  (sort-by 
+    #(s/lower-case (get % "LastName")) #(compare %2 %1) data))
+
+(defn banner [sz]
+  (s/join "" (take sz (repeatedly (fn [] "=")))))
+
 (defn print-data-table [data]
   (pprint/print-table data))
 
-(defn slurp-sort-and-display [args]
-  "TODO"  
-)
+(defn slurp-sort-display [args]
+  "Main driver function for Step 1."
+  (let [data (slurp-mult-files args)
+        sorted1 (sort-by-color-then-last-name data)
+        sorted2 (sort-by-dob data)
+        sorted3 (sort-by-last-name-descend data)]
+
+    (println (str "\n" (banner 80)))
+    (println "Output 1 – sorted by favorite color then by last name"
+             "ascending.")
+    (println (banner 80))
+    (print-data-table sorted1)
+
+    (println (str "\n" (banner 80)))
+    (println "Output 2 – sorted by birth date, ascending.")
+    (println (banner 80))
+    (print-data-table sorted2)
+
+    (println (str "\n" (banner 80)))
+    (println "Output 3 – sorted by last name, descending.")
+    (println (banner 80))
+    (print-data-table sorted3)
+  ))
 
 (defn -main [& args]
-  (println "main")
-  (println args)
+  (println "\n...::: Step 1 :::...")
+  (slurp-sort-display args)
 )
 

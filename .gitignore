@@ -130,4 +130,8 @@ profiles.clj
 !data-1.csv
 !data-2.csv
 !data-3.csv
+!test-data-1.csv
+!test-data-2.csv
+!test-data-3.csv
+!/resources/*.txt
 
