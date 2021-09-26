@@ -1,6 +1,7 @@
 (ns grhomework.core
   [:require
     [clojure.java.io  :as io]
+    ; [clojure.pprint   :as pprint]
     [clojure.set      :as cset]
     [clojure.string   :as s]
     [clojure.data.csv :as csv]])
@@ -10,10 +11,19 @@
 
 (def colors ["red" "orange" "yellow" "green" "blue" "indigo" "violet"])
 
-(defn slurp-csv [fname]
-  (let [data (csv/read-csv (clojure.string/trim (slurp fname)))
-        csv-headers (first data)]
-    (map #(zipmap csv-headers %) (rest data))))
+(defn slurp-csv
+  ([fname]
+    (slurp-csv fname \,))
+  ([fname sep]
+    (let [rawdata- (csv/read-csv (s/trim (slurp fname)) :separator sep)
+          ; clean spaces around values (necessary b/c we can
+          ; only pass in a char, not a multi-char str, for separator)
+          rawdata (map (fn [items] (map #(s/trim %) items)) rawdata-)
+          csv-headers (first rawdata)
+          data (map #(zipmap csv-headers %) (rest rawdata))
+          ;data (map #(into {} (for [[k v] %] [k (s/trim v)])) data-)]
+        ]
+      data)))
 
 (defn sort-cols [data]
   "Turn all maps in data into sorted maps having  
@@ -58,4 +68,7 @@
       (write-delimited-data-file data-2 "data-2.csv" ", ")
       (write-delimited-data-file data-3 "data-3.csv" " ")))
   (println "Generated data-1.csv, data-2.csv, and data-3.csv."))
+
+; (defn print-data-table [data]
+;  (pprint/print-table headers data))
 
