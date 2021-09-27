@@ -56,5 +56,21 @@ and writing of data (stored in-memory).
 POSTing a record:
 
     curl -XPOST  -H"Content-Type:text/plain" -d "Mcmurray | Rolf | exhortationsbabblestopss@trickierAudragyratns.edu | green | 2007-08-15"  http://localhost:3000/records
+    curl -XPOST  -H"Content-Type:text/plain" -d "Burrier, Efrain, overpowernailbrushs@franchisedgateposts.com, red, 2008-10-20"  http://localhost:3000/records
+    curl -XPOST  -H"Content-Type:text/plain" -d "Edwardsen Kieth greasedscapegoating@brokeKatmai.edu yellow 1998-06-05"  http://localhost:3000/records
+
+The above calls are also stored in `load-some-rows.sh`.
+
+GET all records, sorted by color:
+
+    curl http://localhost:3000/records/color
+
+GET all records, sorted by birthdate:
+
+    curl http://localhost:3000/records/birthdate
+
+GET all records, sorted by last name:
+
+    curl http://localhost:3000/records/name
 
 

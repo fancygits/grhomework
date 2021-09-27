@@ -116,6 +116,9 @@
       #(s/lower-case (get % "LastName")))
     data))
 
+(defn sort-by-color [data]
+  (sort-by #(get % "FavoriteColor") data))
+
 (defn sort-by-dob [data]
   (sort-by 
     #(.parse out-sdf (get % "DateOfBirth")) data))
@@ -175,7 +178,7 @@
   {:status 500
    :body (str "500 Server error:\n" msg)})
 
-(defn handle-ok [req]
+(defn resp-200 []
   {:status 200
    :body "ok"})
 
@@ -185,28 +188,39 @@
   (let [txt (slurp (:body req))
         data (process-csv-data
           (list headers (first (convert-csv-str txt))))]
-    (insert-row! (first data) )
-    {:status 200 :body "ok"}))
+    (insert-row! (first data)))
+  (resp-200))
 
 (defn handle-get-sort-by-color [req]
   (when-not (= (:request-method req) :get)
     (resp-405 (:request-method req)))
-  "TODO")
+  (let [sorted (sort-by-color @datastore)
+        json-str (json/write-str sorted)]
+    {:status 200
+     :content-type "application/json"
+     :body json-str}))
 
 (defn handle-get-sort-by-dob [req]
   (when-not (= (:request-method req) :get)
     (resp-405 (:request-method req)))
-  "TODO")
+  (let [sorted (sort-by-dob @datastore)
+        json-str (json/write-str sorted)]
+    {:status 200
+     :content-type "application/json"
+     :body json-str}))
 
 (defn handle-get-sort-by-last-name [req]
   (when-not (= (:request-method req) :get)
     (resp-405 (:request-method req)))
-  "TODO")
+  (let [sorted (reverse (sort-by-last-name-descend @datastore))
+        json-str (json/write-str sorted)]
+    {:status 200
+     :content-type "application/json"
+     :body json-str}))
 
 (defn route [req]
   (try 
     (case (:uri req)
-      "/ok" (handle-ok req)
       "/records" (handle-post-ingest-one-entry req)
       "/records/color" (handle-get-sort-by-color req)
       "/records/birthdate" (handle-get-sort-by-dob req)
@@ -226,6 +240,5 @@
 
 (defn -main [& args]
   (println "\n...::: Step 1 Output :::...")
-  (slurp-sort-display args)
-)
+  (slurp-sort-display args))
 
