@@ -1,6 +1,11 @@
 grhomework
 ==========
 
+Requirements
+------------
+
+See [gr-homework.pdf](doc/gr-homework.pdf).
+
 Generating test data
 --------------------
 
