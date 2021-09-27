@@ -58,6 +58,14 @@ Step 2
 In Step 2 some HTTP endpoints have been set up for simple reading
 and writing of data (stored in-memory).
 
+Start the server (using the repl):
+
+    (def svr (start-svr))
+
+Stop the server:
+
+    (.stop svr)
+
 POSTing a record:
 
     curl -XPOST  -H"Content-Type:text/plain" -d "Mcmurray | Rolf | exhortationsbabblestopss@trickierAudragyratns.edu | green | 2007-08-15"  http://localhost:3000/records
