@@ -4,7 +4,7 @@
 
 (deftest test-prints-table-ok
   (testing "Basic process of slurping delimited file and displaying."
-    (let [test-data (slurp-csv "resources/test-data-1.csv" \|)
+    (let [test-data (slurp-and-process-csv "resources/test-data-1.csv" \|)
           expected-output (slurp "resources/expected-output-test-prints-table-ok.txt")]
       (binding [*out* (java.io.StringWriter.)]
         (print-data-table test-data)
@@ -35,6 +35,7 @@
           expected-output (clojure.edn/read-string
             (slurp "resources/expected-output-sort-by-last-name-descend.txt"))]
       (is (= expected-output sorted))))
+)
 
 (deftest test-slurp-sort-display
   (testing "Step 1 process of slurp, sort, and printing table works ok"
@@ -44,4 +45,12 @@
         (slurp-sort-display inputs)
         (is (= expected-output (.toString *out*)))))))
 
-)
+(deftest test-post-endpoint
+  (testing "Ensure /records POST endpoint stores data succesfully"
+    (let [expected-datastore [{"LastName" "Mcmurray", "FirstName" "Rolf", "Email" "exhortationsbabblestopss@trickierAudragyrations.edu", "FavoriteColor" "green", "DateOfBirth" "8/15/2007"}] 
+          mock-request {:headers {:content-type "text/plain"}, :server-port 3000, :content-length 6, :form-params {}, :query-params {},  :character-encoding nil, :uri "/records", :body "resources/test-row-1.txt", :multipart-params {}, :scheme :http, :request-method :post}
+          resp (handle-post-ingest-one-entry mock-request) ]
+        (and
+          (is (= (:status resp) 200))
+          (is (= @datastore expected-datastore))))))
+

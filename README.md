@@ -47,4 +47,14 @@ file has spaces around the delimier, that will be handled):
 
     lein run resources/data-1.csv "|" resources/data-2.csv "," resources/data-3.csv " "
 
+Step 2
+------
+
+In Step 2 some HTTP endpoints have been set up for simple reading
+and writing of data (stored in-memory).
+
+POSTing a record:
+
+    curl -XPOST  -H"Content-Type:text/plain" -d "Mcmurray | Rolf | exhortationsbabblestopss@trickierAudragyratns.edu | green | 2007-08-15"  http://localhost:3000/records
+
 
